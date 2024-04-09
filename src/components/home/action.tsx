@@ -1,29 +1,26 @@
 "use client";
 
+import Link from "next/link";
 import {
   Card,
-  CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle
 } from "@/components/ui/card";
 
 export default function Action() {
   return (
-    <div className="w-full">
-      <Card>
-        <CardHeader>
-          <CardTitle>Card Title</CardTitle>
-          <CardDescription>Card Description</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p>Card Content</p>
-        </CardContent>
-        <CardFooter>
-          <p>Card Footer</p>
-        </CardFooter>
-      </Card>
+    <div className="f-full w-full">
+      <Link href="/#">
+        <Card className="flex h-full bg-[#FDFFAB]">
+          <CardHeader>
+            <CardTitle>Turn on AI</CardTitle>
+            <CardDescription>
+              We can add new functionalities here
+            </CardDescription>
+          </CardHeader>
+        </Card>
+      </Link>
     </div>
   );
 }

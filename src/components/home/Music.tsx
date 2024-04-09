@@ -1,10 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import {
   Card,
-  CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle
 } from "@/components/ui/card";
@@ -12,18 +11,19 @@ import {
 export default function Music() {
   return (
     <div className="w-full">
-      <Card>
-        <CardHeader>
-          <CardTitle>Card Title</CardTitle>
-          <CardDescription>Card Description</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p>Card Content</p>
-        </CardContent>
-        <CardFooter>
-          <p>Card Footer</p>
-        </CardFooter>
-      </Card>
+      <Link href="https://open.spotify.com/playlist/5bDvrhT1eheXDZsvWWRJg1?si=63474fd4bd304d84">
+        <Card
+          className="flex h-full bg-cover"
+          style={{ backgroundImage: "url('/images/home/music.jpg')" }}
+        >
+          <CardHeader>
+            <CardTitle className="text-white">Music</CardTitle>
+            <CardDescription className="text-white">
+              Music is a friend in life...
+            </CardDescription>
+          </CardHeader>
+        </Card>
+      </Link>
     </div>
   );
 }

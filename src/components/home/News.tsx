@@ -1,29 +1,29 @@
 "use client";
 
+import Link from "next/link";
 import {
   Card,
-  CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle
 } from "@/components/ui/card";
 
 export default function News() {
   return (
-    <div className="w-full">
-      <Card>
-        <CardHeader>
-          <CardTitle>Card Title</CardTitle>
-          <CardDescription>Card Description</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p>Card Content</p>
-        </CardContent>
-        <CardFooter>
-          <p>Card Footer</p>
-        </CardFooter>
-      </Card>
+    <div className="h-full w-full">
+      <Link href="https://13tv.co.il/live/">
+        <Card
+          className="flex h-full bg-cover"
+          style={{ backgroundImage: "url('/images/home/news.jpg')" }}
+        >
+          <CardHeader>
+            <CardTitle className="text-[red]">News</CardTitle>
+            <CardDescription className="text-[red]">
+              Please listen to today's news...
+            </CardDescription>
+          </CardHeader>
+        </Card>
+      </Link>
     </div>
   );
 }
