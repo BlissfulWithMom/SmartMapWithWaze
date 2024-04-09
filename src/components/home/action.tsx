@@ -9,7 +9,7 @@ import {
   CardTitle
 } from "@/components/ui/card";
 
-export default function News() {
+export default function Action() {
   return (
     <div className="w-full">
       <Card>

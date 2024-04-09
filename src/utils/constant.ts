@@ -1,1 +1,1 @@
-export const SITE_TITLE = "smartmap";
+export const SITE_TITLE = "smart-map";

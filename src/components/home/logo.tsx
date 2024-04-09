@@ -5,15 +5,14 @@ import TV from "./tv";
 import Music from "./music";
 import Waze from "./waze";
 import Action from "./action";
-import Logo from "./logo";
 
-export default function Dashboard() {
+export default function Logo() {
   return (
     <section className="h-screen w-full p-4">
       <div className="flex h-full flex-row">
         <div className="flex w-1/4 flex-col">
           <div className="flex">
-            <Logo />
+            <L />
           </div>
           <div className="flex">
             <News />
