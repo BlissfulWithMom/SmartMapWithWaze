@@ -17,8 +17,13 @@ export default function Waze() {
           <CardTitle>News</CardTitle>
           <CardDescription>Please listen to today's news...</CardDescription>
         </CardHeader> */}
-        <CardContent>
-          <p>Card Content</p>
+        <CardContent className="h-full p-2">
+          <iframe
+            id="waze-iframe"
+            frameborder="0"
+            src="https://embed.waze.com/iframe?zoom=13&lat=31.0461&lon=34.8516&ct=livemap&pin=1&desc=1"
+            className="h-full w-full"
+          />
         </CardContent>
         {/* <CardFooter>
           <p>Card Footer</p>

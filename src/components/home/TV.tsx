@@ -11,7 +11,7 @@ import {
 export default function TV() {
   return (
     <div className="w-full">
-      <Link href="https://www.mako.co.il/mako-vod-live-tv/VOD-6540b8dcb64fd31006.htmkan">
+      <Link href="https://www.mako.co.il/mako-vod-live-tv/VOD-6540b8dcb64fd31006.htm">
         <Card
           className="flex h-full bg-cover"
           style={{ backgroundImage: "url('/images/home/tv.jpg')" }}
