@@ -1,13 +1,17 @@
 "use client";
 
+import { useMapStore } from "@/zustand/zustand";
 import News from "./news";
-import TV from "./tv";
+import TV from "./movie";
 import Music from "./music";
 import Waze from "./waze";
 import Action from "./action";
+import GoogleMap from "./googlemap";
 // import Logo from "./logo";
 
 export default function Dashboard() {
+  const GoogleState = useMapStore((state) => state.googleMap);
+  const WazeState = useMapStore((state) => state.wazeMap);
   return (
     <section className="h-screen w-full p-4">
       <div className="flex h-full flex-row">
@@ -29,7 +33,8 @@ export default function Dashboard() {
           </div>
         </div>
         <div className="flex h-full w-3/4 flex-col justify-center">
-          <Waze />
+          {GoogleState && <GoogleMap />}
+          {WazeState && <Waze />}
         </div>
       </div>
     </section>

@@ -17,6 +17,11 @@ export default function Music() {
           style={{ backgroundImage: "url('/images/home/music.jpg')" }}
         >
           <CardHeader>
+            <img
+              src="/icon/music.png"
+              alt="musicIcon"
+              className="h-[50px] w-[50px]"
+            />
             <CardTitle className="text-white">Music</CardTitle>
             <CardDescription className="text-white">
               Music is a friend in life...

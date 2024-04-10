@@ -17,6 +17,11 @@ export default function News() {
           style={{ backgroundImage: "url('/images/home/news.jpg')" }}
         >
           <CardHeader>
+            <img
+              src="/icon/news.png"
+              alt="newsIcon"
+              className="h-[50px] w-[50px]"
+            />
             <CardTitle className="text-[red]">News</CardTitle>
             <CardDescription className="text-[red]">
               Please listen to today's news...
