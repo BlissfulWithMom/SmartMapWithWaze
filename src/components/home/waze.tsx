@@ -9,8 +9,8 @@ export default function Waze() {
         <CardContent className="h-full p-2">
           <iframe
             id="waze-iframe"
-            frameborder="0"
-            src="https://embed.waze.com/iframe?zoom=17&lat=31.771959&lon=35.217018&ct=livemap&pin=1&desc=1"
+            frameBorder="0"
+            src="https://embed.waze.com/iframe?zoom=17&lat=31.771959&lon=35.217018&ct=livemap&pin=1&desc=<USER_ID>$visitor=<VISITOR_ID>"
             className="h-full w-full"
           />
         </CardContent>
