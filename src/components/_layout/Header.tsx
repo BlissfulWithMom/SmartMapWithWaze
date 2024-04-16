@@ -13,21 +13,21 @@ export default function Header() {
             className="box-border flex h-full items-center px-4 pt-1 text-base font-normal text-white"
             href="/"
           >
-            <img src="/images/logo/logo.png" alt="logo" className="w-[90px]" />
+            <img src="/images/logo/logo.svg" alt="logo" className="w-[90px]" />
           </Link>
         </div>
         <div>
           <Link href="/" className="px-4 text-xl text-white">
-            Home
+            action
           </Link>
           <Link href="/about" className="px-4 text-xl text-white">
-            About Us
+            action
           </Link>
           <Link href="/course" className="px-4 text-xl text-white">
-            Our Courses
+            action
           </Link>
           <Link href="/contact" className="px-4 text-xl text-white">
-            Contact Us
+            action
           </Link>
         </div>
         <div className="flex h-full items-center justify-start bg-inherit">
