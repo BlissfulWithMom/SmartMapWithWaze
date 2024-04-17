@@ -1,18 +1,30 @@
 import { create } from "zustand";
 
 export type State = {
-  googleMap: boolean;
-  wazeMap: boolean;
+  field: boolean;
+  waze: boolean;
+  live11: boolean;
+  sagittarius: boolean;
 };
 
 export type Action = {
-  setGoogleMap: () => void;
-  setWazeMap: () => void;
+  setField: () => void;
+  setWaze: () => void;
+  setLive11: () => void;
+  setSagittarius: () => void;
 };
 
-export const useMapStore = create<State & Action>((set) => ({
-  googleMap: true,
-  wazeMap: false,
-  setGoogleMap: () => set({ googleMap: true, wazeMap: false }),
-  setWazeMap: () => set({ wazeMap: true, googleMap: false })
+export const useViewStore = create<State & Action>((set) => ({
+  field: true,
+  waze: false,
+  live11: false,
+  sagittarius: false,
+  setField: () =>
+    set({ field: true, live11: false, sagittarius: false, waze: false }),
+  setWaze: () =>
+    set({ waze: true, field: false, live11: false, sagittarius: false }),
+  setLive11: () =>
+    set({ live11: true, field: false, sagittarius: false, waze: false }),
+  setSagittarius: () =>
+    set({ sagittarius: true, live11: false, field: false, waze: false })
 }));

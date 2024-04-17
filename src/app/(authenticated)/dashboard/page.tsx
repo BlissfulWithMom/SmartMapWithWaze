@@ -1,23 +1,38 @@
-import { Metadata } from "next";
+"use client";
 
-import { SITE_TITLE } from "@/utils/constant";
-import Header from "@/components/_layout/Header";
-import Sidebar from "@/components/_layout/sidebar";
+// import { Metadata } from "next";
+// import { SITE_TITLE } from "@/utils/constant";
+
+import Sidebar from "@/components/dashboard/sidebar";
 import Field from "@/components/dashboard/field";
-import LinkBox from "@/components/dashboard/linkbox";
+import Navigation from "@/components/dashboard/navigation/navigation";
+import IframeComponent from "@/components/dashboard/iframe";
+import { useViewStore } from "@/zustand/zustand";
 
-export const metadata: Metadata = {
-  title: `${SITE_TITLE} - Register`,
-  description: `${SITE_TITLE} - Register`
-};
+// export const metadata: Metadata = {
+//   title: `${SITE_TITLE} - Register`,
+//   description: `${SITE_TITLE} - Register`
+// };
 
-export default function LoginPage() {
+export default function DashboardPage() {
+  const FieldState = useViewStore((state) => state.field);
+  const WazeState = useViewStore((state) => state.waze);
+  const Live11State = useViewStore((state) => state.live11);
+  const SagittariusState = useViewStore((state) => state.sagittarius);
   return (
     <main className="relative flex w-full flex-col bg-[#1a151c]">
-      <Header />
+      <Navigation />
       <Sidebar />
-      <Field />
-      <LinkBox />
+      {FieldState && <Field />}
+      {WazeState && (
+        <IframeComponent url="https://embed.waze.com/iframe?zoom=18&lat=-23.55052&lon=-46.63331&pin=1&desc=1" />
+      )}
+      {Live11State && (
+        <IframeComponent url="https://www.kan.org.il/content/kan/kan-11/p-12317/" />
+      )}
+      {SagittariusState && (
+        <IframeComponent url="https://www.mako.co.il/mako-vod" />
+      )}
     </main>
   );
 }

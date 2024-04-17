@@ -17,7 +17,7 @@ export default function Clock() {
   setInterval(UpdateTime);
   return (
     <div className="flex h-screen w-full justify-start">
-      <div className="z-10 ml-20 w-full pr-4">
+      <div className="ml-20 w-full pr-4">
         {/* <h1 className=" text-white">Hello</h1> */}
         <div
           className="relative mt-32 flex h-[300px] min-w-[550px] items-center justify-center rounded-xl"
@@ -30,7 +30,7 @@ export default function Clock() {
             width: "100%"
           }}
         >
-          <h1 className="text-8xl text-white">{ctime}</h1>
+          <h1 className="text-7xl text-white">{ctime}</h1>
         </div>
       </div>
     </div>

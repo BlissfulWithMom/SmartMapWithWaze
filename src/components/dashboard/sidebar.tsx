@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useViewStore } from "@/zustand/zustand";
 
 export default function Sidebar() {
   const [isCollapsed, setIsCollapsed] = useState(true);
@@ -8,6 +9,8 @@ export default function Sidebar() {
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
   };
+  const Field = useViewStore((state) => state.setField);
+  const Waze = useViewStore((state) => state.setWaze);
 
   return (
     <div
@@ -44,7 +47,7 @@ export default function Sidebar() {
           <li className="flex items-center justify-center">
             <a href="/dashboard" className="flex items-center justify-center">
               {isCollapsed && (
-                <span>
+                <span onClick={Field}>
                   <img
                     src="./images/dashboard/home.png"
                     alt="home"
@@ -53,7 +56,10 @@ export default function Sidebar() {
                 </span>
               )}
               {!isCollapsed && (
-                <div className="flex w-40 items-center justify-start">
+                <div
+                  className="flex w-40 items-center justify-start"
+                  onClick={Field}
+                >
                   <img
                     src="./images/dashboard/home.png"
                     alt="home"
@@ -64,10 +70,10 @@ export default function Sidebar() {
               )}
             </a>
           </li>
-          <li className="flex items-center justify-center">
-            <a href="/fullmap" className="flex items-center justify-center">
+          <li className="flex cursor-pointer items-center justify-center">
+            <a className="flex items-center justify-center">
               {isCollapsed && (
-                <span>
+                <span onClick={Waze}>
                   <img
                     src="./images/dashboard/map.png"
                     alt="map"
@@ -76,13 +82,16 @@ export default function Sidebar() {
                 </span>
               )}
               {!isCollapsed && (
-                <div className="flex w-40 items-center justify-start">
+                <div
+                  className="flex w-40 items-center justify-start"
+                  onClick={Waze}
+                >
                   <img
                     src="./images/dashboard/map.png"
                     alt="fullMap"
                     className="h-[50px] w-[50px]"
                   />
-                  <span className="px-4 text-xl text-white">FullMap</span>
+                  <span className="px-4 text-xl text-white">WazeMap</span>
                 </div>
               )}
             </a>

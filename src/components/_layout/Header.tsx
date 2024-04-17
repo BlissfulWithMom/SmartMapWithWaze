@@ -6,7 +6,7 @@ import { Button } from "../ui/button";
 export default function Header() {
   return (
     <header className="fixed z-50 w-full bg-gradient-to-r from-[#1a151c] from-35% via-[#888282] via-60% to-[#e6e0e0] to-90%">
-      <div className="flex h-[80px] items-center justify-between">
+      <div className="flex items-center justify-between">
         <div className="flex h-full items-center justify-start bg-inherit">
           <Link
             className="box-border flex h-full items-center px-4 pt-1 text-base font-normal text-white"
@@ -19,7 +19,7 @@ export default function Header() {
             />
           </Link>
         </div>
-        <div className="flex justify-center">
+        <div className="max-h-[200px] justify-center">
           <Button className="mr-2 h-12 w-32 bg-[#CA4B03] px-4 text-white">
             כאן 11 סדרות
           </Button>
@@ -52,10 +52,18 @@ export default function Header() {
             </Button>
           </Link>
           <Link href="/#" className="px-4">
-            <img src="./images/dashboard/bell.png" alt="bell" />
+            <img
+              src="./images/dashboard/bell.png"
+              alt="bell"
+              className="h-[50px] w-[50px] "
+            />
           </Link>
           <Link href="/#" className="px-4">
-            <img src="./images/dashboard/user-circle.png" alt="userIcon" />
+            <img
+              src="./images/dashboard/user-circle.png"
+              alt="userIcon"
+              className="h-[50px] w-[50px] "
+            />
           </Link>
         </div>
       </div>

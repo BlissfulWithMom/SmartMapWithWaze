@@ -4,7 +4,7 @@ import "./style.css";
 
 export default function Waze() {
   return (
-    <div className="mt-12 flex h-screen w-full justify-end">
+    <div className="flex h-screen w-full justify-end">
       <div className="flex w-full">
         <iframe
           id="waze-iframe"
