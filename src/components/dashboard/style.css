@@ -1,0 +1,7 @@
+.leaflet-control.leaflet-control--search {
+  display: none !important;
+}
+
+.wm-search__input {
+  display: none !important;
+}

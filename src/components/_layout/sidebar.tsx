@@ -1,56 +1,137 @@
 "use client";
 
 import { useState } from "react";
-import { HiMenu } from "react-icons/hi";
-import { AiFillHome, AiOutlineLogout } from "react-icons/ai";
-import { BiMap } from "react-icons/bi";
-import { LuSettings } from "react-icons/lu";
 
 export default function Sidebar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
+
+  const toggleSidebar = () => {
+    setIsCollapsed(!isCollapsed);
+  };
 
   return (
-    <div className="fixed rounded-r-3xl bg-gradient-to-b from-[#363547] to-[#1a161c]">
-      <nav>
-        <ul>
-          <li>
-            <a href="#">
-              <span>
-                <HiMenu className="text-4xl text-white" />
-              </span>
-              <span className="px-4 text-xl text-white">Menu</span>
+    <div
+      className={`fixed top-1/2 z-50 h-[700px] -translate-y-1/2 transform rounded-r-3xl bg-gradient-to-b from-[#363547] to-[#1a161c] ${isCollapsed ? "w-20" : "w-64"}`}
+    >
+      <nav className="flex h-full">
+        <ul className="flex h-full w-full flex-col justify-around">
+          <li
+            onClick={toggleSidebar}
+            className="flex items-center justify-center"
+          >
+            <a className="flex items-center justify-center">
+              {isCollapsed && (
+                <span>
+                  <img
+                    src="./images/dashboard/ellipsis-horizontal.png"
+                    alt="menu"
+                    className="h-[50px] w-[50px]"
+                  />
+                </span>
+              )}
+              {!isCollapsed && (
+                <div className="flex w-40 items-center justify-start">
+                  <img
+                    src="./images/dashboard/ellipsis-horizontal.png"
+                    alt="menu"
+                    className="h-[50px] w-[50px]"
+                  />
+                  <span className="px-4 text-xl text-white" />
+                </div>
+              )}
             </a>
           </li>
-          <li>
-            <a href="#">
-              <span>
-                <AiFillHome className="text-4xl text-white" />
-              </span>
-              <span className="px-4 text-xl text-white">Home</span>
+          <li className="flex items-center justify-center">
+            <a href="/dashboard" className="flex items-center justify-center">
+              {isCollapsed && (
+                <span>
+                  <img
+                    src="./images/dashboard/home.png"
+                    alt="home"
+                    className="h-[50px] w-[50px]"
+                  />
+                </span>
+              )}
+              {!isCollapsed && (
+                <div className="flex w-40 items-center justify-start">
+                  <img
+                    src="./images/dashboard/home.png"
+                    alt="home"
+                    className="h-[50px] w-[50px]"
+                  />
+                  <span className="px-4 text-xl text-white">Home</span>
+                </div>
+              )}
             </a>
           </li>
-          <li>
-            <a href="#">
-              <span>
-                <BiMap className="text-4xl text-white" />
-              </span>
-              <span className="px-4 text-xl text-white">Map</span>
+          <li className="flex items-center justify-center">
+            <a href="/fullmap" className="flex items-center justify-center">
+              {isCollapsed && (
+                <span>
+                  <img
+                    src="./images/dashboard/map.png"
+                    alt="map"
+                    className="h-[50px] w-[50px]"
+                  />
+                </span>
+              )}
+              {!isCollapsed && (
+                <div className="flex w-40 items-center justify-start">
+                  <img
+                    src="./images/dashboard/map.png"
+                    alt="fullMap"
+                    className="h-[50px] w-[50px]"
+                  />
+                  <span className="px-4 text-xl text-white">FullMap</span>
+                </div>
+              )}
             </a>
           </li>
-          <li>
-            <a href="#">
-              <span>
-                <LuSettings className="text-4xl text-white" />
-              </span>
-              <span className="px-4 text-xl text-white">Setting</span>
+          <li className="flex items-center justify-center">
+            <a href="#" className="flex items-center justify-center">
+              {isCollapsed && (
+                <span>
+                  <img
+                    src="./images/dashboard/cog.png"
+                    alt="settings"
+                    className="h-[50px] w-[50px]"
+                  />
+                </span>
+              )}
+              {!isCollapsed && (
+                <div className="flex w-40 items-center justify-start">
+                  <img
+                    src="./images/dashboard/cog.png"
+                    alt="settings"
+                    className="h-[50px] w-[50px]"
+                  />
+                  <span className="px-4 text-xl text-white">Settings</span>
+                </div>
+              )}
             </a>
           </li>
-          <li>
-            <a href="#">
-              <span>
-                <AiOutlineLogout className="text-4xl text-white" />
-              </span>
-              <span className="px-4 text-xl text-white">Log Out</span>
+          <li />
+          <li className="flex items-center justify-center">
+            <a href="#" className="flex items-center justify-center">
+              {isCollapsed && (
+                <span>
+                  <img
+                    src="./images/dashboard/arrow-left-on-rectangle.png"
+                    alt="logout"
+                    className="h-[50px] w-[50px]"
+                  />
+                </span>
+              )}
+              {!isCollapsed && (
+                <div className="flex w-40 items-center justify-start">
+                  <img
+                    src="./images/dashboard/arrow-left-on-rectangle.png"
+                    alt="logout"
+                    className="h-[50px] w-[50px]"
+                  />
+                  <span className="px-4 text-xl text-white">LogOut</span>
+                </div>
+              )}
             </a>
           </li>
         </ul>
