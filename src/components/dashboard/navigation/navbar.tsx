@@ -7,7 +7,14 @@ import { useViewStore } from "@/zustand/zustand";
 
 function Navbar({ toggle }: { toggle: () => void }) {
   const Live11 = useViewStore((state) => state.setLive11);
+  const Sport1 = useViewStore((state) => state.setSport1);
+  const LiveChat = useViewStore((state) => state.setLiveChat);
+  const Channel13 = useViewStore((state) => state.setChannel13);
+  const Channel14 = useViewStore((state) => state.setChannel14);
+  const Children = useViewStore((state) => state.setChildren);
   const Sagittarius = useViewStore((state) => state.setSagittarius);
+  const Here11 = useViewStore((state) => state.setHere11);
+
   return (
     <header className="sticky z-50 w-full bg-gradient-to-r from-[#1a151c] from-35% via-[#888282] via-60% to-[#e6e0e0] to-90%">
       <div className="mx-auto h-full px-4">
@@ -46,25 +53,25 @@ function Navbar({ toggle }: { toggle: () => void }) {
               <button onClick={Live11}>כאן 11 סדרות</button>
             </li>
             <li>
-              <button>ספורט 1</button>
+              <button onClick={Sport1}>ספורט 1</button>
             </li>
             <li>
-              <button>הידברות שידור חי</button>
+              <button onClick={LiveChat}>הידברות שידור חי</button>
             </li>
             <li>
-              <button>ערוץ 13 שידור חי</button>
+              <button onClick={Channel13}>ערוץ 13 שידור חי</button>
             </li>
             <li>
-              <button>ערוץ 14 שידור חי</button>
+              <button onClick={Channel14}>ערוץ 14 שידור חי</button>
             </li>
             <li>
-              <button>ניק ערוץ הילדיםl</button>
+              <button onClick={Children}>ניק ערוץ הילדיםl</button>
             </li>
             <li>
               <button onClick={Sagittarius}>12 קשת</button>
             </li>
             <li>
-              <button>11 כאן</button>
+              <button onClick={Here11}>11 כאן</button>
             </li>
           </ul>
           <div className="mr-20 flex h-full items-center justify-start bg-inherit">

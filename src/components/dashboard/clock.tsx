@@ -16,8 +16,8 @@ export default function Clock() {
   };
   setInterval(UpdateTime);
   return (
-    <div className="flex h-screen w-full justify-start">
-      <div className="ml-20 w-full pr-4">
+    <div className="fixed flex h-screen w-full justify-start">
+      <div className="ml-20 pr-4">
         {/* <h1 className=" text-white">Hello</h1> */}
         <div
           className="relative mt-32 flex h-[300px] min-w-[550px] items-center justify-center rounded-xl"
