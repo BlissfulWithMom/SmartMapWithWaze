@@ -11,7 +11,7 @@ export default function DropMenu({
 }) {
   return (
     <div
-      className="sidebar-container fixed left-0 z-10 grid h-full w-full justify-center overflow-hidden bg-white pt-[120px]"
+      className="sidebar-container fixed left-0 z-50 grid h-full w-full justify-center overflow-hidden bg-white pt-[120px]"
       style={{
         opacity: `${isOpen ? "1" : "0"}`,
         top: ` ${isOpen ? "0" : "-100%"}`

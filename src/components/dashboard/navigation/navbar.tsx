@@ -75,11 +75,9 @@ function Navbar({ toggle }: { toggle: () => void }) {
             </li>
           </ul>
           <div className="mr-20 flex h-full items-center justify-start bg-inherit">
-            <Link href="/#" className="px-4">
-              <Button className="h-[50px] w-[150px] rounded-3xl bg-[#4a3aff] text-xl">
-                AI Command
-              </Button>
-            </Link>
+            <Button className="h-[50px] w-[150px] rounded-3xl bg-[#4a3aff] px-4 text-xl">
+              AI Command
+            </Button>
             <Link href="/#" className="px-4">
               <Button
                 className="h-[50px] w-[50px] bg-transparent hover:bg-transparent"

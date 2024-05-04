@@ -4,7 +4,7 @@
 // import { SITE_TITLE } from "@/utils/constant";
 
 import Sidebar from "@/components/dashboard/sidebar";
-import Field from "@/components/dashboard/field";
+import Field from "@/components/dashboard/map";
 import Navigation from "@/components/dashboard/navigation/navigation";
 import IframeComponent from "@/components/dashboard/iframe";
 import { useViewStore } from "@/zustand/zustand";
@@ -39,10 +39,11 @@ export default function DashboardPage() {
     <main className="relative flex w-full flex-col bg-[#1a151c]">
       <Navigation />
       <Sidebar />
-      <Clock />
+      {!WazeState && <Clock />}
       {FieldState && <Field />}
       {WazeState && (
         <IframeComponent url="https://embed.waze.com/iframe?zoom=18&lat=-23.55052&lon=-46.63331&pin=1&desc=1" />
+        // <IframeComponent url="https://www.waze.com/live-map/" />
       )}
       {Live11State && (
         <IframeComponent url="https://cdnapisec.kaltura.com/html5/html5lib/v2.98/mwEmbedFrame.php/p/2717431/uiconf_id/46986963/entry_id/1_sdqcljik?wid=_2717431&amp;iframeembed=true&amp;playerId=kaltura_player_1614238298&amp;entry_id=1_sdqcljik&amp;flashvars[autoPlay]=false&amp;flashvars[liveCore.disableLiveCheck]=true" />
