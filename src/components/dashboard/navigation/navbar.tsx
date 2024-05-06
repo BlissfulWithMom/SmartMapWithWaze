@@ -2,11 +2,9 @@
 
 import React from "react";
 import Link from "next/link";
-import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
-  DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -15,13 +13,7 @@ import {
 
 import { useViewStore } from "@/zustand/zustand";
 
-type Checked = DropdownMenuCheckboxItemProps["checked"];
-
 function Navbar({ toggle }: { toggle: () => void }) {
-  const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true);
-  const [showActivityBar, setShowActivityBar] = React.useState<Checked>(false);
-  const [showPanel, setShowPanel] = React.useState<Checked>(false);
-
   const Field = useViewStore((state) => state.setField);
   const Live11 = useViewStore((state) => state.setLive11);
   const Sport1 = useViewStore((state) => state.setSport1);

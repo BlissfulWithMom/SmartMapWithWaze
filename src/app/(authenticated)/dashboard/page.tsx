@@ -52,11 +52,10 @@ export default function DashboardPage() {
               backgroundBlendMode: "Overlay"
             }}
           >
-            1
+            <Clock />
+            <LinkBox />
           </div>
           <Map />
-          <Clock />
-          <LinkBox />
         </>
       ) : (
         <>

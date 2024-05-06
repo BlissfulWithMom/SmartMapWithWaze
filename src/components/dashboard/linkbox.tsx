@@ -60,7 +60,7 @@ export default function LinkBox() {
 
   return (
     <div
-      className={`fixed w-[435px] opacity-90 ${FieldState ? "left-28 top-96" : "left-12 top-44"}`}
+      className={`fixed min-w-[220px] max-w-[435px] opacity-90 ${FieldState ? "left-28 top-96" : "left-6 top-44"}`}
     >
       <div className="flex h-full w-full flex-wrap ">
         {list.map((l, index) => (
