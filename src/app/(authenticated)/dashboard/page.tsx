@@ -4,12 +4,13 @@
 // import { SITE_TITLE } from "@/utils/constant";
 
 import Sidebar from "@/components/dashboard/sidebar";
-import Field from "@/components/dashboard/map";
+import Map from "@/components/dashboard/map";
 import Navigation from "@/components/dashboard/navigation/navigation";
 import IframeComponent from "@/components/dashboard/iframe";
-import { useViewStore } from "@/zustand/zustand";
 import Clock from "@/components/dashboard/clock";
+import LinkBox from "@/components/dashboard/linkbox";
 
+import { useViewStore } from "@/zustand/zustand";
 // export const metadata: Metadata = {
 //   title: `${SITE_TITLE} - Register`,
 //   description: `${SITE_TITLE} - Register`
@@ -36,14 +37,35 @@ export default function DashboardPage() {
   const CNNState = useViewStore((state) => state.cnn);
   const MovieState = useViewStore((state) => state.movie);
   return (
-    <main className="relative flex w-full flex-col bg-[#1a151c]">
+    <main className="relative flex w-full flex-col bg-[#F8F6E3]">
       <Navigation />
-      <Sidebar />
-      {!WazeState && <Clock />}
-      {FieldState && <Field />}
+      {/* <Sidebar /> */}
+      {FieldState ? (
+        <>
+          <div
+            className="fixed h-screen w-1/3"
+            style={{
+              backgroundImage: `url(./images/dashboard/background.png)`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              backgroundBlendMode: "Overlay"
+            }}
+          >
+            1
+          </div>
+          <Map />
+          <Clock />
+          <LinkBox />
+        </>
+      ) : (
+        <>
+          <Clock />
+          <LinkBox />
+        </>
+      )}
       {WazeState && (
         <IframeComponent url="https://embed.waze.com/iframe?zoom=18&lat=-23.55052&lon=-46.63331&pin=1&desc=1" />
-        // <IframeComponent url="https://www.waze.com/live-map/" />
       )}
       {Live11State && (
         <IframeComponent url="https://cdnapisec.kaltura.com/html5/html5lib/v2.98/mwEmbedFrame.php/p/2717431/uiconf_id/46986963/entry_id/1_sdqcljik?wid=_2717431&amp;iframeembed=true&amp;playerId=kaltura_player_1614238298&amp;entry_id=1_sdqcljik&amp;flashvars[autoPlay]=false&amp;flashvars[liveCore.disableLiveCheck]=true" />
@@ -63,13 +85,11 @@ export default function DashboardPage() {
       {Here11State && (
         <IframeComponent url="https://cdnapisec.kaltura.com/html5/html5lib/v2.98/mwEmbedFrame.php/p/2717431/uiconf_id/46986963/entry_id/101_sdqcljik?wid=_2717431&iframeembed=true&playerId=kaltura_player_1614238298&entry_id=1_sdqcljik&flashvars[autoPlay]=false&flashvars[liveCore.disableLiveCheck]=true" />
       )}
-
       {/* Same as SagittariusState */}
       {Button19State && (
         <IframeComponent url="https://www.mako.co.il/mako-vod" />
       )}
       {OneBankState && <IframeComponent url="https://www.onezerobank.com/" />}
-
       {/* Same as SagittariusState */}
       {ChatState && <IframeComponent url="https://www.mako.co.il/mako-vod" />}
       {FlowerState && <IframeComponent url="https://www.flowernet.co.il/" />}

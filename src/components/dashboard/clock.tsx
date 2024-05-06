@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useViewStore } from "@/zustand/zustand";
 
 export default function Clock() {
+  const FieldState = useViewStore((state) => state.field);
+
   let time = new Date().toLocaleTimeString("en-US", {
     hour: "numeric",
     minute: "numeric",
@@ -16,13 +19,13 @@ export default function Clock() {
   };
   setInterval(UpdateTime);
   return (
-    <div className="fixed flex h-screen w-full justify-start">
-      <div className="ml-20 pr-4">
+    <div className={`fixed ${FieldState ? "left-28 top-0" : "right-12 top-8"}`}>
+      <div className="">
         {/* <h1 className=" text-white">Hello</h1> */}
         <div
-          className="relative mt-32 flex h-[300px] min-w-[550px] items-center justify-center rounded-xl"
+          className="relative mt-40 flex h-[200px] min-w-[412px] items-center justify-center rounded-xl bg-[#3F72AF] opacity-90"
           style={{
-            backgroundImage: 'url("/images/dashboard/view.png")',
+            backgroundImage: 'url("/images/dashboard/Eclipse.png")',
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -30,7 +33,7 @@ export default function Clock() {
             width: "100%"
           }}
         >
-          <h1 className="text-7xl text-white">{ctime}</h1>
+          <h1 className="text-5xl text-white">{ctime}</h1>
         </div>
       </div>
     </div>

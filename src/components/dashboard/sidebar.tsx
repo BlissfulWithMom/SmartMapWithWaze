@@ -82,7 +82,7 @@ export default function Sidebar() {
 
   return (
     <div
-      className={`fixed top-1/2 z-40 h-[700px] -translate-y-1/2 transform rounded-r-3xl bg-gradient-to-b from-[#363547] to-[#1a161c] ${isCollapsed ? "w-20" : "w-64"}`}
+      className={`fixed top-1/2 z-40 h-[700px] -translate-y-1/2 transform rounded-r-3xl bg-[#3F72AF] opacity-90 ${isCollapsed ? "w-20" : "w-64"}`}
     >
       <nav className="flex h-full">
         <ul className="flex h-full w-full flex-col justify-around">

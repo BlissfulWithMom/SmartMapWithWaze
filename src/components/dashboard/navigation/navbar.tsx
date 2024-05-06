@@ -2,10 +2,27 @@
 
 import React from "react";
 import Link from "next/link";
+import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger
+} from "@/components/ui/dropdown-menu";
+
 import { useViewStore } from "@/zustand/zustand";
 
+type Checked = DropdownMenuCheckboxItemProps["checked"];
+
 function Navbar({ toggle }: { toggle: () => void }) {
+  const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true);
+  const [showActivityBar, setShowActivityBar] = React.useState<Checked>(false);
+  const [showPanel, setShowPanel] = React.useState<Checked>(false);
+
+  const Field = useViewStore((state) => state.setField);
   const Live11 = useViewStore((state) => state.setLive11);
   const Sport1 = useViewStore((state) => state.setSport1);
   const LiveChat = useViewStore((state) => state.setLiveChat);
@@ -16,7 +33,7 @@ function Navbar({ toggle }: { toggle: () => void }) {
   const Here11 = useViewStore((state) => state.setHere11);
 
   return (
-    <header className="sticky z-50 w-full bg-gradient-to-r from-[#1a151c] from-35% via-[#888282] via-60% to-[#e6e0e0] to-90%">
+    <header className="fixed z-50 h-24 w-full bg-[#3F72AF]">
       <div className="mx-auto h-full px-4">
         <div className="flex h-full items-center justify-between">
           <div className="flex h-full items-center justify-start bg-inherit">
@@ -49,36 +66,39 @@ function Navbar({ toggle }: { toggle: () => void }) {
             </svg>
           </button>
           <ul className="hidden h-full gap-x-6 text-white md:flex">
-            <li>
+            <li className="flex items-center">
+              <button onClick={Field}>Home</button>
+            </li>
+            <li className="flex items-center">
               <button onClick={Live11}>כאן 11 סדרות</button>
             </li>
-            <li>
+            <li className="flex items-center">
               <button onClick={Sport1}>ספורט 1</button>
             </li>
-            <li>
+            <li className="flex items-center">
               <button onClick={LiveChat}>הידברות שידור חי</button>
             </li>
-            <li>
+            <li className="flex items-center">
               <button onClick={Channel13}>ערוץ 13 שידור חי</button>
             </li>
-            <li>
+            <li className="flex items-center">
               <button onClick={Channel14}>ערוץ 14 שידור חי</button>
             </li>
-            <li>
+            <li className="flex items-center">
               <button onClick={Children}>ניק ערוץ הילדיםl</button>
             </li>
-            <li>
+            <li className="flex items-center">
               <button onClick={Sagittarius}>12 קשת</button>
             </li>
-            <li>
+            <li className="flex items-center">
               <button onClick={Here11}>11 כאן</button>
             </li>
           </ul>
           <div className="mr-20 flex h-full items-center justify-start bg-inherit">
-            <Button className="h-[50px] w-[150px] rounded-3xl bg-[#4a3aff] px-4 text-xl">
+            <Button className="mr-4 h-[50px] w-[150px] rounded-3xl bg-[#4a3aff] px-4 text-xl">
               AI Command
             </Button>
-            <Link href="/#" className="px-4">
+            {/* <Link href="/#" className="px-4">
               <Button
                 className="h-[50px] w-[50px] bg-transparent hover:bg-transparent"
                 style={{
@@ -90,20 +110,27 @@ function Navbar({ toggle }: { toggle: () => void }) {
                   width: "100%"
                 }}
               />
-            </Link>
-            <Link href="/#" className="px-4">
-              <Button
-                className="h-[50px] w-[50px] bg-transparent hover:bg-transparent"
-                style={{
-                  backgroundImage: 'url("/images/dashboard/user-circle.png")',
-                  backgroundSize: "contain",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  backgroundBlendMode: "Overlay",
-                  width: "100%"
-                }}
-              />
-            </Link>
+            </Link> */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  className="h-[50px] w-[50px] bg-transparent hover:bg-transparent"
+                  style={{
+                    backgroundImage: 'url("/images/dashboard/user-circle.png")',
+                    backgroundSize: "contain",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    backgroundBlendMode: "Overlay",
+                    width: "100%"
+                  }}
+                />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56">
+                <DropdownMenuLabel>User</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <Button className="w-full">Log Out</Button>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </div>
       </div>
