@@ -1,23 +1,14 @@
 "use client";
 
-// import { Metadata } from "next";
-// import { SITE_TITLE } from "@/utils/constant";
 import { useViewStore } from "@/zustand/zustand";
-
-// import Sidebar from "@/components/dashboard/sidebar";
 import Map from "@/components/dashboard/map";
 import Navigation from "@/components/dashboard/navigation/navigation";
 import IframeComponent from "@/components/dashboard/iframe";
 import Clock from "@/components/dashboard/clock";
 import LinkBox from "@/components/dashboard/linkbox";
-
 import Logo from "@/components/dashboard/logo";
-// export const metadata: Metadata = {
-//   title: `${SITE_TITLE} - Register`,
-//   description: `${SITE_TITLE} - Register`
-// };
 
-export default function DashboardPage() {
+function DashboardPage() {
   const FieldState = useViewStore((state) => state.field);
   const WazeState = useViewStore((state) => state.waze);
   const Live11State = useViewStore((state) => state.live11);
@@ -37,10 +28,10 @@ export default function DashboardPage() {
   const FlightState = useViewStore((state) => state.flight);
   const CNNState = useViewStore((state) => state.cnn);
   const MovieState = useViewStore((state) => state.movie);
+
   return (
     <main className="relative flex w-full flex-col bg-[#3F72AF]">
       <Navigation />
-      {/* <Sidebar /> */}
       {FieldState ? (
         <>
           <div
@@ -87,12 +78,10 @@ export default function DashboardPage() {
       {Here11State && (
         <IframeComponent url="https://cdnapisec.kaltura.com/html5/html5lib/v2.98/mwEmbedFrame.php/p/2717431/uiconf_id/46986963/entry_id/101_sdqcljik?wid=_2717431&iframeembed=true&playerId=kaltura_player_1614238298&entry_id=1_sdqcljik&flashvars[autoPlay]=false&flashvars[liveCore.disableLiveCheck]=true" />
       )}
-      {/* Same as SagittariusState */}
       {Button19State && (
         <IframeComponent url="https://www.mako.co.il/mako-vod" />
       )}
       {OneBankState && <IframeComponent url="https://www.onezerobank.com/" />}
-      {/* Same as SagittariusState */}
       {ChatState && <IframeComponent url="https://www.mako.co.il/mako-vod" />}
       {FlowerState && <IframeComponent url="https://www.flowernet.co.il/" />}
       {NewsState && <IframeComponent url="https://www.n12.co.il/" />}
@@ -103,3 +92,5 @@ export default function DashboardPage() {
     </main>
   );
 }
+
+export default DashboardPage;

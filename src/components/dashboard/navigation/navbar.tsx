@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -25,20 +24,23 @@ function Navbar({ toggle }: { toggle: () => void }) {
   const Here11 = useViewStore((state) => state.setHere11);
 
   return (
-    <header className="fixed z-50 h-24 w-full bg-[#3F72AF]">
+    <header className="fixed bottom-0 z-50 h-24 w-full bg-[#3F72AF]">
       <div className="mx-auto h-full px-4">
-        <div className="flex h-full items-center justify-between">
-          <div className="flex h-full items-center justify-start bg-inherit">
-            <Link
-              className="box-border flex h-full items-center px-4 pt-1 text-base font-normal text-white"
-              href="/"
-            >
-              <img
-                src="/images/logo/logo.svg"
-                alt="logo"
-                className="w-[90px]"
+        <div className="flex h-full items-center justify-around">
+          <div>
+            <div className="flex h-[60px] w-[60px] items-center rounded-full bg-gray-700 hover:bg-black">
+              <Button
+                className="bg-transparent hover:bg-transparent"
+                style={{
+                  backgroundImage: 'url("/images/dashboard/home.png")',
+                  backgroundSize: "contain",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                  width: "100%"
+                }}
+                onClick={Field}
               />
-            </Link>
+            </div>
           </div>
           <button
             type="button"
@@ -58,36 +60,33 @@ function Navbar({ toggle }: { toggle: () => void }) {
             </svg>
           </button>
           <ul className="hidden h-full gap-x-6 text-white md:flex">
-            <li className="flex items-center">
-              <button onClick={Field}>Home</button>
-            </li>
-            <li className="flex items-center">
+            <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
               <button onClick={Live11}>כאן 11 סדרות</button>
             </li>
-            <li className="flex items-center">
+            <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
               <button onClick={Sport1}>ספורט 1</button>
             </li>
-            <li className="flex items-center">
+            <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
               <button onClick={LiveChat}>הידברות שידור חי</button>
             </li>
-            <li className="flex items-center">
+            <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
               <button onClick={Channel13}>ערוץ 13 שידור חי</button>
             </li>
-            <li className="flex items-center">
+            <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
               <button onClick={Channel14}>ערוץ 14 שידור חי</button>
             </li>
-            <li className="flex items-center">
+            <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
               <button onClick={Children}>ניק ערוץ הילדיםl</button>
             </li>
-            <li className="flex items-center">
+            <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
               <button onClick={Sagittarius}>12 קשת</button>
             </li>
-            <li className="flex items-center">
+            <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
               <button onClick={Here11}>11 כאן</button>
             </li>
           </ul>
-          <div className="mr-20 flex h-full items-center justify-start bg-inherit">
-            <Button className="mr-4 h-[50px] w-[150px] rounded-3xl bg-[#4a3aff] px-4 text-xl">
+          <div className="mr-20 flex h-full items-center justify-between bg-inherit">
+            <Button className="mr-4 h-[50px] w-[150px] rounded-3xl bg-[#41B06E] px-4 text-xl hover:bg-[#EE4266]">
               AI Command
             </Button>
             {/* <Link href="/#" className="px-4">

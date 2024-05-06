@@ -10,10 +10,10 @@ export default function Waze() {
           id="waze-iframe"
           frameBorder="0"
           src="https://embed.waze.com/iframe?zoom=18&lat=-23.55052&lon=-46.63331&pin=1&desc=1"
-          className="z-40 mt-24 h-[calc(100vh-6rem)] w-full"
+          className="z-40 h-[calc(100vh-6rem)] w-full"
           style={{
-            // borderBottomLeftRadius: "80%",
-            boxShadow: "0px 0px 100px #FFFAB7 "
+            borderBottomRightRadius: "20px",
+            boxShadow: "-10px 0px 35px -7px #FFFAB7 "
           }}
         />
       </div>

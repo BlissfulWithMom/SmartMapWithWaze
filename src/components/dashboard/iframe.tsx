@@ -4,7 +4,11 @@ import React from "react";
 
 function IframeComponent({ url }) {
   return (
-    <iframe src={url} width="100%" className="mt-24 h-[calc(100vh-6rem)]" />
+    <iframe
+      src={url}
+      width="100%"
+      className="h-[calc(100vh-6rem)] rounded-b-[20px]"
+    />
   );
 }
 

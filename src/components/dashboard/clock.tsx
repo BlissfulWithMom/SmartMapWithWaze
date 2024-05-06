@@ -19,7 +19,7 @@ export default function Clock() {
   };
   setInterval(UpdateTime);
   return (
-    <div className={`fixed ${FieldState ? "left-28 top-0" : "right-8 top-8"}`}>
+    <div className={`fixed ${FieldState ? "left-28 top-0" : "right-8 top-0"}`}>
       <div className="">
         {/* <h1 className=" text-white">Hello</h1> */}
         <div
