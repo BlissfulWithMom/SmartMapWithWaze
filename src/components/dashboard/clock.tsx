@@ -19,11 +19,11 @@ export default function Clock() {
   };
   setInterval(UpdateTime);
   return (
-    <div className={`fixed ${FieldState ? "left-28 top-0" : "right-8 top-0"}`}>
+    <div className={`${FieldState ? "mt-12 flex" : "fixed right-8 top-32"}`}>
       <div className="">
         {/* <h1 className=" text-white">Hello</h1> */}
         <div
-          className="relative mt-40 flex h-[200px] min-w-[412px] items-center justify-center rounded-xl bg-[#3F72AF] opacity-90"
+          className="flex h-[150px] min-w-[350px] items-center justify-center rounded-xl bg-[#3F72AF] opacity-90 shadow-[0_0_20px_0_rgba(0,0,0)]"
           style={{
             backgroundImage: 'url("/images/dashboard/Eclipse.png")',
             backgroundSize: "cover",

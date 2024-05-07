@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { useViewStore } from "@/zustand/zustand";
+import VoiceControlledButton from "../voicecommand";
 
 function Navbar({ toggle }: { toggle: () => void }) {
   const Field = useViewStore((state) => state.setField);
@@ -28,7 +29,7 @@ function Navbar({ toggle }: { toggle: () => void }) {
       <div className="mx-auto h-full px-4">
         <div className="flex h-full items-center justify-around">
           <div>
-            <div className="flex h-[60px] w-[60px] items-center rounded-full bg-gray-700 hover:bg-black">
+            <div className="mx-8 flex h-[60px] w-[60px] items-center rounded-full bg-gray-700 shadow-[0_0_15px_0_rgba(0,0,0)] hover:bg-black">
               <Button
                 className="bg-transparent hover:bg-transparent"
                 style={{
@@ -86,9 +87,7 @@ function Navbar({ toggle }: { toggle: () => void }) {
             </li>
           </ul>
           <div className="mr-20 flex h-full items-center justify-between bg-inherit">
-            <Button className="mr-4 h-[50px] w-[150px] rounded-3xl bg-[#41B06E] px-4 text-xl hover:bg-[#EE4266]">
-              AI Command
-            </Button>
+            <VoiceControlledButton />
             {/* <Link href="/#" className="px-4">
               <Button
                 className="h-[50px] w-[50px] bg-transparent hover:bg-transparent"
