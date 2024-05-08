@@ -24,17 +24,17 @@ export default function ClockButton() {
         onClick={handleClick}
         style={{
           backgroundImage: isButtonActive
-            ? 'url("/images/dashboard/clockdark.png")'
-            : 'url("/images/dashboard/clocklight.png")',
+            ? 'url("/images/dashboard/clocklight.png")'
+            : 'url("/images/dashboard/clockdark.png")',
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat"
         }}
       >
         {isButtonActive ? (
-          <div className="flex items-center justify-center text-white">ON</div>
+          <div className="flex items-center justify-center text-black">ON</div>
         ) : (
-          <div className="flex items-center justify-center text-black">OFF</div>
+          <div className="flex items-center justify-center text-white">OFF</div>
         )}
       </Button>
     </div>

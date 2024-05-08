@@ -1,9 +1,5 @@
 "use client";
 
-import Link from "next/link";
-
-import { useViewStore } from "@/zustand/zustand";
-
 export default function DropMenu({
   isOpen,
   toggle
@@ -11,26 +7,6 @@ export default function DropMenu({
   isOpen: boolean;
   toggle: () => void;
 }) {
-  const Field = useViewStore((state) => state.setField);
-  const Waze = useViewStore((state) => state.setWaze);
-  const Live11 = useViewStore((state) => state.setLive11);
-  const Sport1 = useViewStore((state) => state.setSport1);
-  const LiveChat = useViewStore((state) => state.setLiveChat);
-  const Channel13 = useViewStore((state) => state.setChannel13);
-  const Channel14 = useViewStore((state) => state.setChannel14);
-  const Children = useViewStore((state) => state.setChildren);
-  const Sagittarius = useViewStore((state) => state.setSagittarius);
-  const Here11 = useViewStore((state) => state.setHere11);
-
-  const Button19 = useViewStore((state) => state.setButton19);
-  const OneBank = useViewStore((state) => state.setOneBank);
-  const Chat = useViewStore((state) => state.setChat);
-  const Flower = useViewStore((state) => state.setFlower);
-  const News = useViewStore((state) => state.setNews);
-  const Lottery = useViewStore((state) => state.setLottery);
-  const Flight = useViewStore((state) => state.setFlight);
-  const CNN = useViewStore((state) => state.setCnn);
-  const Movie = useViewStore((state) => state.setMovie);
   return (
     <div
       className="sidebar-container fixed left-0 z-50 grid h-full w-full justify-center overflow-hidden bg-white pt-[120px]"
@@ -58,67 +34,89 @@ export default function DropMenu({
         <li>
           <button
             onClick={() => {
-              Field();
               toggle();
             }}
-          >
-            Home
-          </button>
+          />
         </li>
         <li>
-          <button onClick={Waze}>Drive</button>
+          <a href="/dashboard">Home</a>
         </li>
         <li>
-          <button onClick={Live11}>כאן 11 סדרות</button>
+          <a href="/dashboard/https%3A%2F%2Fembed.waze.com%2Fiframe%3Fzoom%3D18%26lat%3D-23.55052%26lon%3D-46.63331%26pin%3D1%26desc%3D1">
+            Drive
+          </a>
         </li>
         <li>
-          <button onClick={Sport1}>ספורט 1</button>
+          <a href="/dashboard/https%3A%2F%2Fwww.easygo.co.il">
+            כרטיסי טיסה ונופש
+          </a>
         </li>
         <li>
-          <button onClick={LiveChat}>הידברות שידור חי</button>
+          <a href="/dashboard/https%3A%2F%2Fwww.onezerobank.com">בנק אפס אחד</a>
         </li>
         <li>
-          <button onClick={Channel13}>ערוץ 13 שידור חי</button>
+          <a href="/dashboard/https%3A%2F%2Fwww.flowernet.co.il">הזמנת פרחים</a>
         </li>
         <li>
-          <button onClick={Channel14}>ערוץ 14 שידור חי</button>
+          <a href="/dashboard/https%3A%2F%2Fwww.hidabroot.org%2Fvod">
+            הידברות שידור חי
+          </a>
         </li>
         <li>
-          <button onClick={Children}>ניק ערוץ הילדיםl</button>
+          <a href="/dashboard/https%3A%2F%2Fwww.mako.co.il%2Fmako-vod">צ'אט</a>
         </li>
         <li>
-          <button onClick={Sagittarius}>12 קשת</button>
+          <a href="/dashboard/https%3A%2F%2Fwww.one.co.il%2FVOD">ספורט 1</a>
         </li>
         <li>
-          <button onClick={Here11}>11 כאן</button>
+          <a href="/dashboard/https%3A%2F%2Fpopcorntimeonline.xyz">סרטים</a>
+        </li>
+        <li>
+          <a href="/dashboard/https%3A%2F%2Fwww.mako.co.il%2Fmako-vod">
+            כפתור 19
+          </a>
         </li>
 
         <li>
-          <button onClick={Button19}>כפתור 19</button>
+          <a href="/dashboard/https%3A%2F%2Fcdnapisec.kaltura.com%2Fhtml5%2Fhtml5lib%2Fv2.98%2FmwEmbedFrame.php%2Fp%2F2717431%2Fuiconf_id%2F46986963%2Fentry_id%2F101_sdqcljik%3Fwid%3D_2717431%26iframeembed%3Dtrue%26playerId%3Dkaltura_player_1614238298%26entry_id%3D1_sdqcljik%26flashvars%5BautoPlay%5D%3Dfalse%26flashvars%5Blivecore.disablelivecheck%5D%3Dtrue">
+            11 כאן
+          </a>
         </li>
         <li>
-          <button onClick={OneBank}>בנק אפס אחד</button>
+          <a href="/dashboard/https%3A%2F%2Fwww.mako.co.il%2Fmako-vod">
+            12 קשת
+          </a>
         </li>
         <li>
-          <button onClick={Chat}>צ'אט</button>
+          <a href="/dashboard/https%3A%2F%2Fwww.mivzaklive.co.il%2FTV%2F13.php">
+            ערוץ 13 שידור חי
+          </a>
         </li>
         <li>
-          <button onClick={Flower}>הזמנת פרחים</button>
+          <a href="/dashboard/https%3A%2F%2Fsnippet.univtec.com%2Fplayer.html%3Fdata-insight%3DeyJndWlkIjoiMF9uMzAwaXkxYSIsInR5cGUiOiJ2b2RzIiwiYWNjb3VudElkIjoiNjM5Nzc1M2ZmZjg3MTk3MWFlNmEzYzAzIiwiY2xpZW50IjoiY2hhbm5lbDE0IiwiYXBpIjoiaHR0cHM6Ly9pbnNpZ2h0LWFwaS1jaGFubmVsMTQudW5pdnRlYy5jb20vIn0%3D%26data-guid%3Ddb529069-92ee-4cab-bf27-dba373019760%26data-type%3Dchannels%26data-kantar%3Dnow14web">
+            ערוץ 14 שידור חי
+          </a>
         </li>
         <li>
-          <button onClick={News}>חדשות</button>
+          <a href="/dashboard/https%3A%2F%2Fwww.nick.co.il">ניק ערוץ הילדיםl</a>
         </li>
         <li>
-          <button onClick={Lottery}>מפעל הפיס</button>
+          <a href="/dashboard/https%3A%2F%2Fcdnapisec.kaltura.com%2Fhtml5%2Fhtml5lib%2Fv2.98%2FmwEmbedFrame.php%2Fp%2F2717431%2Fuiconf_id%2F46986963%2Fentry_id%2F1_sdqcljik%3Fwid%3D_2717431%26iframeembed%3Dtrue%26playerId%3Dkaltura_player_1614238298%26entry_id%3D1_sdqcljik%26flashvars%5BautoPlay%5D%3Dfalse%26flashvars%5Blivecore.disablelivecheck%5D%3Dtrue">
+            כאן 11 סדרות
+          </a>
         </li>
         <li>
-          <button onClick={Flight}>כרטיסי טיסה ונופש</button>
+          <a href="/dashboard/https%3A%2F%2Fwww.pais.co.il%2Fchance">
+            מפעל הפיס
+          </a>
         </li>
         <li>
-          <button onClick={CNN}>CNNLIVE</button>
+          <a href="/dashboard/https%3A%2F%2Fwww.n12.co.il">חדשות</a>
         </li>
         <li>
-          <button onClick={Movie}>סרטים</button>
+          <a href="/dashboard/https%3A%2F%2Ftv.mivzaklive.co.il%2F26.php">
+            CNNLIVE
+          </a>
         </li>
       </ul>
     </div>

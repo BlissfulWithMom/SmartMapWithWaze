@@ -6,7 +6,7 @@ function IframeComponent({ url }: { url: string }) {
   return (
     <iframe
       title={url}
-      src={`https://${url}`}
+      src={url}
       width="100%"
       className="h-[calc(100vh-6rem)] rounded-b-[20px]"
     />

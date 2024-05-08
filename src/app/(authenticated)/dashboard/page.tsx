@@ -12,7 +12,6 @@ import Clock from "@/components/dashboard/clock";
 import LinkBox from "@/components/dashboard/linkbox";
 
 import Logo from "@/components/dashboard/logo";
-import DynamicPages from "@/components/dashboard/dynamicpage";
 // export const metadata: Metadata = {
 //   title: `${SITE_TITLE} - Register`,
 //   description: `${SITE_TITLE} - Register`
@@ -36,40 +35,30 @@ export default function DashboardPage() {
     return () => clearInterval(interval);
   }, [bgImgs.length]);
 
-  const FieldState = useViewStore((state) => state.field);
-
   const ClockState = useViewStore((state) => state.clock);
+
   return (
     <main className="flex w-full flex-col bg-[#222831]">
       <Navigation />
       {/* <Sidebar /> */}
-      {FieldState ? (
-        <div className="flex w-full flex-row">
-          <div
-            className="flex h-[calc(100vh-6rem)] w-1/3 flex-col items-center justify-around rounded-bl-[20px]"
-            style={{
-              backgroundImage: `url(${bgImgs[bgIndex]})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              backgroundBlendMode: "Overlay",
-              transition: "background-image 2s ease-in-out" // Add this line
-            }}
-          >
-            {ClockState ? <Clock /> : null}
-            <LinkBox />
-            <Logo />
-          </div>
-          {/* <div className="flex h-screen w-full">1</div> */}
-          <Map />
-        </div>
-      ) : (
-        <>
+      <div className="flex w-full flex-row">
+        <div
+          className="flex h-[calc(100vh-6rem)] w-1/3 flex-col items-center justify-around rounded-bl-[20px]"
+          style={{
+            backgroundImage: `url(${bgImgs[bgIndex]})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundBlendMode: "Overlay",
+            transition: "background-image 2s ease-in-out" // Add this line
+          }}
+        >
           {ClockState ? <Clock /> : null}
           <LinkBox />
-        </>
-      )}
-      <DynamicPages />
+          <Logo />
+        </div>
+        <Map />
+      </div>
     </main>
   );
 }

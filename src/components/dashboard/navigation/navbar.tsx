@@ -11,28 +11,17 @@ import {
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 
-import { useViewStore } from "@/zustand/zustand";
 import VoiceControlledButton from "../voicecommand";
 import ClockButton from "../clockbutton";
 
 function Navbar({ toggle }: { toggle: () => void }) {
-  const Field = useViewStore((state) => state.setField);
-  const Waze = useViewStore((state) => state.setWaze);
-  const Flight = useViewStore((state) => state.setFlight);
-  const Flower = useViewStore((state) => state.setFlower);
-  const OneBank = useViewStore((state) => state.setOneBank);
-  const Sport1 = useViewStore((state) => state.setSport1);
-  const LiveChat = useViewStore((state) => state.setLiveChat);
-  const Chat = useViewStore((state) => state.setChat);
-  const Movie = useViewStore((state) => state.setMovie);
-
   return (
     <header className="fixed bottom-0 z-50 h-24 w-full bg-[#222831]">
       <div className="mx-auto h-full px-4">
         <div className="flex h-full items-center justify-around">
           <div className="flex items-center justify-center">
             <div className="mx-8 flex  items-center ">
-              <Button
+              <a
                 className="hover:bg-transition h-[80px] w-[80px] rounded-full bg-transparent transition-all duration-300 hover:-mt-3 "
                 style={{
                   backgroundImage: 'url("/images/dashboard/home2.png")',
@@ -40,11 +29,11 @@ function Navbar({ toggle }: { toggle: () => void }) {
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat"
                 }}
-                onClick={Field}
+                href="/dashboard"
               />
             </div>
-            <div>
-              <Button
+            <div className="mx-8 flex  items-center ">
+              <a
                 className="hover:bg-transition h-[80px] w-[80px] rounded-full bg-transparent transition-all duration-300 hover:-mt-3 "
                 style={{
                   backgroundImage: 'url("/images/dashboard/home2.png")',
@@ -52,10 +41,8 @@ function Navbar({ toggle }: { toggle: () => void }) {
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat"
                 }}
-                onClick={Waze}
-              >
-                Drive
-              </Button>
+                href="/dashboard/https%3A%2F%2Fembed.waze.com%2Fiframe%3Fzoom%3D18%26lat%3D-23.55052%26lon%3D-46.63331%26pin%3D1%26desc%3D1"
+              />
             </div>
           </div>
 
@@ -79,41 +66,40 @@ function Navbar({ toggle }: { toggle: () => void }) {
 
           <ul className="hidden h-full gap-x-6 text-white md:flex">
             <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
-              <button onClick={Flight}>כרטיסי טיסה ונופש</button>
+              <a href="/dashboard/https%3A%2F%2Fwww.easygo.co.il">
+                כרטיסי טיסה ונופש
+              </a>
             </li>
             <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
-              <button onClick={OneBank}>בנק אפס אחד</button>
+              <a href="/dashboard/https%3A%2F%2Fwww.onezerobank.com">
+                בנק אפס אחד
+              </a>
             </li>
             <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
-              <button onClick={Flower}>הזמנת פרחים</button>
+              <a href="/dashboard/https%3A%2F%2Fwww.flowernet.co.il">
+                הזמנת פרחים
+              </a>
             </li>
             <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
-              <button onClick={LiveChat}>הידברות שידור חי</button>
+              <a href="/dashboard/https%3A%2F%2Fwww.hidabroot.org%2Fvod">
+                הידברות שידור חי
+              </a>
             </li>
             <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
-              <button onClick={Chat}>צ'אט</button>
+              <a href="/dashboard/https%3A%2F%2Fwww.mako.co.il%2Fmako-vod">
+                צ'אט
+              </a>
             </li>
             <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
-              <button onClick={Sport1}>ספורט 1</button>
+              <a href="/dashboard/https%3A%2F%2Fwww.one.co.il%2FVOD">ספורט 1</a>
             </li>
             <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
-              <button onClick={Movie}>סרטים</button>
+              <a href="/dashboard/https%3A%2F%2Fpopcorntimeonline.xyz">סרטים</a>
             </li>
           </ul>
           <div className="flex h-full items-center justify-between bg-inherit">
             <VoiceControlledButton />
             <ClockButton />
-            {/* <Button
-              className="h-[50px] w-[50px] bg-transparent hover:bg-transparent"
-              style={{
-                backgroundImage: 'url("/images/dashboard/bell.png")',
-                backgroundSize: "contain",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                backgroundBlendMode: "Overlay",
-                width: "100%"
-              }}
-            /> */}
           </div>
           <div>
             <DropdownMenu>

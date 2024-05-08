@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { useViewStore } from "@/zustand/zustand";
 
 export default function Clock() {
-  const FieldState = useViewStore((state) => state.field);
-
+  const pathName = window.location.pathname;
+  const Position = pathName === "/dashboard" ? "flex" : "fixed right-8 top-32";
   let time = new Date().toLocaleTimeString("en-US", {
     hour: "numeric",
     minute: "numeric",
@@ -19,7 +18,7 @@ export default function Clock() {
   };
   setInterval(UpdateTime);
   return (
-    <div className={`${FieldState ? "mt-12 flex" : "fixed right-8 top-32"}`}>
+    <div className={`${Position}`}>
       <div className="">
         {/* <h1 className=" text-white">Hello</h1> */}
         <div
