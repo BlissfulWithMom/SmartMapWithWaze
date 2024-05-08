@@ -34,10 +34,10 @@ function Navbar({ toggle }: { toggle: () => void }) {
             </div>
             <div className="mx-8 flex  items-center ">
               <a
-                className="hover:bg-transition h-[80px] w-[80px] rounded-full bg-transparent transition-all duration-300 hover:-mt-3 "
+                className="hover:bg-transition h-[60px] w-[60px] rounded-full bg-transparent shadow-[0_0_15px_0_rgba(0,0,255)] transition-all duration-300 hover:-mt-3 "
                 style={{
-                  backgroundImage: 'url("/images/dashboard/home2.png")',
-                  backgroundSize: "contain",
+                  backgroundImage: 'url("/images/dashboard/viewmap.jpg")',
+                  backgroundSize: "cover",
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat"
                 }}

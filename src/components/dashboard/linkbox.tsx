@@ -1,8 +1,22 @@
 "use client";
 
+import { useState, useEffect } from "react";
+
 export default function LinkBox() {
-  const pathName = window.location.pathname;
-  const Position = pathName === "/dashboard" ? "flex" : "fixed left-6 top-24";
+  const [pathName, setPathName] = useState("");
+  const [position, setPosition] = useState("flex");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setPathName(window.location.pathname);
+      setPosition(
+        window.location.pathname === "/dashboard"
+          ? "flex"
+          : "fixed left-6 top-24"
+      );
+    }
+  }, []);
+
   const list = [
     {
       title: "כפתור 19",
@@ -47,12 +61,18 @@ export default function LinkBox() {
   ];
 
   return (
-    <div className={`min-w-[220px] max-w-[435px] opacity-90 ${Position}`}>
+    <div className={`min-w-[220px] max-w-[435px] opacity-90 ${position}`}>
       <div className="flex h-full w-full flex-wrap items-center justify-center">
         {list.map((l, index) => (
           <div
             key={index}
             className="mr-4 mt-4 flex h-[50px] w-[200px] cursor-pointer items-center justify-center rounded-xl bg-[#6AD4DD] text-black opacity-90 hover:bg-[#EE4266] hover:text-white hover:shadow-[0_0_20px_0_rgba(0,0,0)]"
+            // style={{
+            //   backgroundImage: 'url("/images/dashboard/bg.png")',
+            //   backgroundSize: "cover",
+            //   backgroundPosition: "center",
+            //   backgroundRepeat: "no-repeat"
+            // }}
           >
             <a
               className="flex items-center justify-center"
