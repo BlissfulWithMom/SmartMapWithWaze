@@ -2,10 +2,11 @@
 
 import React from "react";
 
-function IframeComponent({ url }) {
+function IframeComponent({ url }: { url: string }) {
   return (
     <iframe
-      src={url}
+      title={url}
+      src={`https://${url}`}
       width="100%"
       className="h-[calc(100vh-6rem)] rounded-b-[20px]"
     />

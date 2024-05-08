@@ -1,6 +1,8 @@
 import { create } from "zustand";
 
 export type State = {
+  clock: boolean;
+
   field: boolean;
   waze: boolean;
   live11: boolean;
@@ -23,6 +25,8 @@ export type State = {
 };
 
 export type Action = {
+  setClock: () => void;
+
   setField: () => void;
   setWaze: () => void;
   setLive11: () => void;
@@ -45,6 +49,7 @@ export type Action = {
 };
 
 export const useViewStore = create<State & Action>((set) => ({
+  clock: false,
   field: true,
   waze: false,
   live11: false,
@@ -64,6 +69,7 @@ export const useViewStore = create<State & Action>((set) => ({
   flight: false,
   cnn: false,
   movie: false,
+  setClock: () => set((state) => ({ clock: !state.clock })),
 
   setField: () =>
     set({

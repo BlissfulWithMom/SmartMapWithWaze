@@ -2,6 +2,7 @@
 
 // import { Metadata } from "next";
 // import { SITE_TITLE } from "@/utils/constant";
+import { useState, useEffect } from "react";
 import { useViewStore } from "@/zustand/zustand";
 
 // import Sidebar from "@/components/dashboard/sidebar";
@@ -18,9 +19,28 @@ import DynamicPages from "@/components/dashboard/dynamicpage";
 // };
 
 export default function DashboardPage() {
+  const [bgIndex, setBgIndex] = useState(0);
+
+  const bgImgs = [
+    "./images/dashboard/back1.jpg",
+    "./images/dashboard/back2.jpg",
+    "./images/dashboard/back3.jpg",
+    "./images/dashboard/back4.jpg",
+    "./images/dashboard/back5.jpg"
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBgIndex((prevIndex) => (prevIndex + 1) % bgImgs.length);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [bgImgs.length]);
+
   const FieldState = useViewStore((state) => state.field);
+
+  const ClockState = useViewStore((state) => state.clock);
   return (
-    <main className="flex w-full flex-col bg-[#3F72AF]">
+    <main className="flex w-full flex-col bg-[#222831]">
       <Navigation />
       {/* <Sidebar /> */}
       {FieldState ? (
@@ -28,14 +48,15 @@ export default function DashboardPage() {
           <div
             className="flex h-[calc(100vh-6rem)] w-1/3 flex-col items-center justify-around rounded-bl-[20px]"
             style={{
-              backgroundImage: `url(./images/dashboard/background.png)`,
+              backgroundImage: `url(${bgImgs[bgIndex]})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
-              backgroundBlendMode: "Overlay"
+              backgroundBlendMode: "Overlay",
+              transition: "background-image 2s ease-in-out" // Add this line
             }}
           >
-            <Clock />
+            {ClockState ? <Clock /> : null}
             <LinkBox />
             <Logo />
           </div>
@@ -44,7 +65,7 @@ export default function DashboardPage() {
         </div>
       ) : (
         <>
-          <Clock />
+          {ClockState ? <Clock /> : null}
           <LinkBox />
         </>
       )}

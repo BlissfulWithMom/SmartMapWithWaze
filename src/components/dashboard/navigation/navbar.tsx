@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { FaUser } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -12,37 +13,52 @@ import {
 
 import { useViewStore } from "@/zustand/zustand";
 import VoiceControlledButton from "../voicecommand";
+import ClockButton from "../clockbutton";
 
 function Navbar({ toggle }: { toggle: () => void }) {
   const Field = useViewStore((state) => state.setField);
-  const Live11 = useViewStore((state) => state.setLive11);
+  const Waze = useViewStore((state) => state.setWaze);
+  const Flight = useViewStore((state) => state.setFlight);
+  const Flower = useViewStore((state) => state.setFlower);
+  const OneBank = useViewStore((state) => state.setOneBank);
   const Sport1 = useViewStore((state) => state.setSport1);
   const LiveChat = useViewStore((state) => state.setLiveChat);
-  const Channel13 = useViewStore((state) => state.setChannel13);
-  const Channel14 = useViewStore((state) => state.setChannel14);
-  const Children = useViewStore((state) => state.setChildren);
-  const Sagittarius = useViewStore((state) => state.setSagittarius);
-  const Here11 = useViewStore((state) => state.setHere11);
+  const Chat = useViewStore((state) => state.setChat);
+  const Movie = useViewStore((state) => state.setMovie);
 
   return (
-    <header className="fixed bottom-0 z-50 h-24 w-full bg-[#3F72AF]">
+    <header className="fixed bottom-0 z-50 h-24 w-full bg-[#222831]">
       <div className="mx-auto h-full px-4">
         <div className="flex h-full items-center justify-around">
-          <div>
-            <div className="mx-8 flex h-[60px] w-[60px] items-center rounded-full bg-gray-700 shadow-[0_0_15px_0_rgba(0,0,0)] hover:bg-black">
+          <div className="flex items-center justify-center">
+            <div className="mx-8 flex  items-center ">
               <Button
-                className="bg-transparent hover:bg-transparent"
+                className="hover:bg-transition h-[80px] w-[80px] rounded-full bg-transparent transition-all duration-300 hover:-mt-3 "
                 style={{
-                  backgroundImage: 'url("/images/dashboard/home.png")',
+                  backgroundImage: 'url("/images/dashboard/home2.png")',
                   backgroundSize: "contain",
                   backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  width: "100%"
+                  backgroundRepeat: "no-repeat"
                 }}
                 onClick={Field}
               />
             </div>
+            <div>
+              <Button
+                className="hover:bg-transition h-[80px] w-[80px] rounded-full bg-transparent transition-all duration-300 hover:-mt-3 "
+                style={{
+                  backgroundImage: 'url("/images/dashboard/home2.png")',
+                  backgroundSize: "contain",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat"
+                }}
+                onClick={Waze}
+              >
+                Drive
+              </Button>
+            </div>
           </div>
+
           <button
             type="button"
             className="inline-flex items-center md:hidden"
@@ -60,60 +76,60 @@ function Navbar({ toggle }: { toggle: () => void }) {
               />
             </svg>
           </button>
+
           <ul className="hidden h-full gap-x-6 text-white md:flex">
             <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
-              <button onClick={Live11}>כאן 11 סדרות</button>
+              <button onClick={Flight}>כרטיסי טיסה ונופש</button>
             </li>
             <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
-              <button onClick={Sport1}>ספורט 1</button>
+              <button onClick={OneBank}>בנק אפס אחד</button>
+            </li>
+            <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
+              <button onClick={Flower}>הזמנת פרחים</button>
             </li>
             <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
               <button onClick={LiveChat}>הידברות שידור חי</button>
             </li>
             <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
-              <button onClick={Channel13}>ערוץ 13 שידור חי</button>
+              <button onClick={Chat}>צ'אט</button>
             </li>
             <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
-              <button onClick={Channel14}>ערוץ 14 שידור חי</button>
+              <button onClick={Sport1}>ספורט 1</button>
             </li>
             <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
-              <button onClick={Children}>ניק ערוץ הילדיםl</button>
-            </li>
-            <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
-              <button onClick={Sagittarius}>12 קשת</button>
-            </li>
-            <li className="flex items-center border-b-4 border-[#3F72AF] text-base hover:border-[#EE4266] hover:text-[#EE4266]">
-              <button onClick={Here11}>11 כאן</button>
+              <button onClick={Movie}>סרטים</button>
             </li>
           </ul>
-          <div className="mr-20 flex h-full items-center justify-between bg-inherit">
+          <div className="flex h-full items-center justify-between bg-inherit">
             <VoiceControlledButton />
-            {/* <Link href="/#" className="px-4">
-              <Button
-                className="h-[50px] w-[50px] bg-transparent hover:bg-transparent"
-                style={{
-                  backgroundImage: 'url("/images/dashboard/bell.png")',
-                  backgroundSize: "contain",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  backgroundBlendMode: "Overlay",
-                  width: "100%"
-                }}
-              />
-            </Link> */}
+            <ClockButton />
+            {/* <Button
+              className="h-[50px] w-[50px] bg-transparent hover:bg-transparent"
+              style={{
+                backgroundImage: 'url("/images/dashboard/bell.png")',
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundBlendMode: "Overlay",
+                width: "100%"
+              }}
+            /> */}
+          </div>
+          <div>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
-                  className="h-[50px] w-[50px] bg-transparent hover:bg-transparent"
+                  className="h-[70px] w-[70px] rounded-full bg-transparent hover:bg-transparent hover:shadow-[0_0_15px_0_rgba(0,0,0)]"
                   style={{
-                    backgroundImage: 'url("/images/dashboard/user-circle.png")',
+                    backgroundImage: 'url("/images/dashboard/round.png")',
                     backgroundSize: "contain",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
-                    backgroundBlendMode: "Overlay",
-                    width: "100%"
+                    backgroundBlendMode: "Overlay"
                   }}
-                />
+                >
+                  <FaUser className="text-xl text-black" />
+                </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56">
                 <DropdownMenuLabel>User</DropdownMenuLabel>

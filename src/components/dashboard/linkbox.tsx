@@ -4,57 +4,58 @@ import { useViewStore } from "@/zustand/zustand";
 
 export default function LinkBox() {
   const FieldState = useViewStore((state) => state.field);
-  const Waze = useViewStore((state) => state.setWaze);
+
   const Button19 = useViewStore((state) => state.setButton19);
-  const OneBank = useViewStore((state) => state.setOneBank);
-  const Chat = useViewStore((state) => state.setChat);
-  const Flower = useViewStore((state) => state.setFlower);
+  const Live11 = useViewStore((state) => state.setLive11);
+  const Here11 = useViewStore((state) => state.setHere11);
+  const Sagittarius = useViewStore((state) => state.setSagittarius);
+  const Channel13 = useViewStore((state) => state.setChannel13);
+  const Channel14 = useViewStore((state) => state.setChannel14);
+  const Children = useViewStore((state) => state.setChildren);
   const News = useViewStore((state) => state.setNews);
   const Lottery = useViewStore((state) => state.setLottery);
-  const Flight = useViewStore((state) => state.setFlight);
   const CNN = useViewStore((state) => state.setCnn);
-  const Movie = useViewStore((state) => state.setMovie);
 
   const list = [
-    {
-      title: "Drive",
-      function: Waze
-    },
     {
       title: "כפתור 19",
       function: Button19
     },
     {
-      title: "בנק אפס אחד",
-      function: OneBank
+      title: "11 כאן",
+      function: Here11
     },
     {
-      title: "צ'אט",
-      function: Chat
+      title: "12 קשת",
+      function: Sagittarius
     },
     {
-      title: "הזמנת פרחים",
-      function: Flower
+      title: "ערוץ 13 שידור חי",
+      function: Channel13
     },
     {
-      title: "חדשות",
-      function: News
+      title: "ערוץ 14 שידור חי",
+      function: Channel14
+    },
+    {
+      title: "ניק ערוץ הילדיםl",
+      function: Children
+    },
+    {
+      title: "כאן 11 סדרות",
+      function: Live11
     },
     {
       title: "מפעל הפיס",
       function: Lottery
     },
     {
-      title: "כרטיסי טיסה ונופש",
-      function: Flight
+      title: "חדשות",
+      function: News
     },
     {
       title: "CNNLIVE",
       function: CNN
-    },
-    {
-      title: "סרטים",
-      function: Movie
     }
   ];
 
@@ -66,14 +67,14 @@ export default function LinkBox() {
         {list.map((l, index) => (
           <div
             key={index}
-            className="mr-4 mt-4 flex h-[50px] w-[200px] cursor-pointer items-center justify-center rounded-xl bg-[#1B3C73] opacity-90 hover:bg-[#EE4266] hover:shadow-[0_0_20px_0_rgba(0,0,0)]"
+            className="mr-4 mt-4 flex h-[50px] w-[200px] cursor-pointer items-center justify-center rounded-xl bg-[#6AD4DD] text-black opacity-90 hover:bg-[#EE4266] hover:text-white hover:shadow-[0_0_20px_0_rgba(0,0,0)]"
           >
             <a className="flex items-center justify-center">
               <div
                 className="flex w-40 items-center justify-start"
                 onClick={l.function}
               >
-                <span className="px-4 text-base text-white">{l.title}</span>
+                <span className="px-4 text-base">{l.title}</span>
               </div>
             </a>
           </div>
